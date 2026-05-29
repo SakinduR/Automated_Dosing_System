@@ -1,0 +1,34 @@
+# ---------------------------------------------------
+# PlatformIO Built Artifacts & Libraries
+# (This stops GitHub from uploading megabytes of compiled junk)
+# ---------------------------------------------------
+.pio/
+*.o
+*.elf
+*.bin
+*.hex
+*.a
+
+# ---------------------------------------------------
+# VS Code IDE Settings 
+# (Prevents your personal editor settings from overwriting others')
+# ---------------------------------------------------
+.vscode/
+*.code-workspace
+
+# ---------------------------------------------------
+# OS Generated Files (Windows & Mac)
+# ---------------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ---------------------------------------------------
+# C++ specific
+# ---------------------------------------------------
+*.out
+*.app
