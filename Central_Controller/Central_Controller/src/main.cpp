@@ -83,12 +83,9 @@ void mqttCallback(char *topic, byte *payload, unsigned int length)
   Serial.print("Network Request: ");
   Serial.println(message);
 
-  // Parse incoming requests from any remote node in the hospital
+  // Parse incoming requests from the single remote dispenser node
   if (message == "REFILL_TANK1")
     addToQueue(1);
-  if (message == "REFILL_TANK2")
-    addToQueue(2);
-  // You can easily add more here later if the hospital expands
 }
 
 // ==========================================

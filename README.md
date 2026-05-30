@@ -1,6 +1,6 @@
 # 🏥 IoT Automated Hospital Dosing System
 
-An industrial-grade, distributed IoT automated dosing system designed for hospital environments. This project manages the sequential refilling of decentralized 750ml chemical dispensing tanks utilizing an MQTT publish/subscribe architecture over an isolated Wi-Fi network. It features non-blocking state machine queues and real-time algorithmic fail-safes to prevent mechanical and physical disasters.
+An industrial-grade, distributed IoT automated dosing system designed for hospital environments. This project manages the sequential refilling of a decentralized 750ml chemical dispensing tank utilizing an MQTT publish/subscribe architecture over an isolated Wi-Fi network. It features non-blocking state machine logic and real-time algorithmic fail-safes to prevent mechanical and physical disasters.
 
 ## 🏗️ System Architecture & Component Map
 
@@ -22,7 +22,7 @@ The brains of the operation. It manages the central physical plant and handles t
 
 ### 2. The Dispenser Node (The Muscle)
 
-A lightweight edge node attached to individual 750ml tanks distributed throughout the hospital.
+A lightweight edge node attached to the hospital's single 750ml dispensing tank.
 
 - **Physical Hardware Managed:**
 - Gems ELS-1100 Optical Level Sensor (Pushbutton/Digital Input)
@@ -44,7 +44,7 @@ A lightweight edge node attached to individual 750ml tanks distributed throughou
 │   ├── 📄 diagram.json         # Wokwi hardware layout for the main plant
 │   └── 📄 wokwi.toml           # Wokwi path configuration
 │
-└── 📁 Dispenser_Node           # Project 2: The Distributed Tank
+└── 📁 Dispenser_Node           # Project 2: The Single Distributed Tank
     ├── 📁 src
     │   └── 📄 main.cpp         # Lightweight MQTT listener and hardware trigger
     ├── 📄 platformio.ini       # PlatformIO config (Includes PubSubClient)
@@ -72,7 +72,7 @@ This project is built using **PlatformIO** and simulated using **Wokwi** inside 
 3. Open the VS Code Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P`) and execute: `Wokwi: Start Simulator`.
 4. Wait for the virtual LCD screen to display `WIFI CONNECTED!` and `SYSTEM IDLE`.
 
-### Step 2: Boot the Dispenser Node(s)
+### Step 2: Boot the Dispenser Node
 
 1. Open a **second** VS Code window and open the `Dispenser_Node` folder.
 2. Build the project using PlatformIO.
@@ -83,7 +83,7 @@ This project is built using **PlatformIO** and simulated using **Wokwi** inside 
 
 1. Place both VS Code windows side-by-side.
 2. On the **Dispenser Node** simulator, click the Green Pushbutton (Optical Sensor).
-3. **Observe the Hub:** The Central Hub's LCD will change to `FILLING TANK`. The Red Relay and Blue Pump LED will activate.
+3. **Observe the Hub:** The Central Hub's LCD will change to `FILLING TANK: 1`. The Red Relay and Blue Pump LED will activate.
 4. **Observe the Node:** The Hub will send an MQTT command back to the Node, turning on its Green LED (SMC Valve).
 5. **Cycle Complete:** After 15 seconds, the Hub will shut down the main plant and command the Node to close its valve.
 
